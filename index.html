@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Kalkulator</title>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-500 to-blue-200">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-80 text-center">
+        <h1 class="text-2xl font-bold mb-4">Kalkulator</h1>
+        <h4 class="text-2xl font-bold mb-4 text-purple-400">Juan Put<span class="text-red-300">ra Omartio</span></h4>
+        <input type="text" id="display" class="w-full text-right text-xl p-2 border rounded mb-4" readonly>
+        <div class="grid grid-cols-4 gap-2">
+            <button class="btn" onclick="tampilkan('7')">7</button>
+            <button class="btn" onclick="tampilkan('8')">8</button>
+            <button class="btn" onclick="tampilkan('9')">9</button>
+            <button class="btn bg-red-500 " onclick="hapus()">C</button>
+            <button class="btn" onclick="tampilkan('4')">4</button>
+            <button class="btn" onclick="tampilkan('5')">5</button>
+            <button class="btn" onclick="tampilkan('6')">6</button>
+            <button class="btn" onclick="tampilkan('-')">-</button>
+            <button class="btn" onclick="tampilkan('1')">1</button>
+            <button class="btn" onclick="tampilkan('2')">2</button>
+            <button class="btn" onclick="tampilkan('3')">3</button>
+            <button class="btn" onclick="tampilkan('+')">+</button>
+            <button class="btn col-span-2" onclick="tampilkan('0')">0</button>
+            <button class="btn" onclick="tampilkan('.')">.</button>
+            <button class="btn bg-green-500 " onclick="hasil()">=</button>
+        </div>
+    </div>
+
+    <script>
+        function tampilkan(value) {
+            document.getElementById('display').value += value;
+        }
+        
+        function hasil() {
+            try {
+                const nilai = eval(document.getElementById('display').value);
+                document.getElementById('display').value = nilai;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+        
+        function hapus() {
+            document.getElementById('display').value = "";
+        }
+    </script>
+
+    <style>
+        .btn {
+            padding: 10px;
+            background-color: #f3f4f6;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #e5e7eb;
+        }
+    </style>
+</body>
+</html>
